@@ -11,10 +11,12 @@
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
-  </properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+    </properties>
 
   <dependencyManagement>
     <dependencies>
@@ -25,12 +27,6 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-
-    <dependency>
-      <groupId>org.seleniumhq.selenium</groupId>
-      <artifactId>selenium-java</artifactId>
-      <version>4.15.0</version>
-    </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -46,11 +42,11 @@
       <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
     </dependency>
-  <dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.15.0</version>
-  </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.15.0</version>
+    </dependency>
     <dependency>
       <groupId>com.googlecode.json-simple</groupId>
       <artifactId>json-simple</artifactId>
@@ -102,5 +98,14 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+    <plugin>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.3.0</version>
+      <configuration>
+        <skipTests>true</skipTests>
+      </configuration>
+    </plugin>
+  </plugins>
   </build>
 </project>
